@@ -1,4 +1,4 @@
-import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
+﻿import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 
 const hero = document.querySelector('.hero-body');
@@ -10,27 +10,68 @@ if (hero && container && container.parentElement !== hero) {
 
 const flowerScale = 4;
 const mobileFlowerScale = 2.3;
-const flowerX = 1.15;
-const mobileFlowerX = 0.2;
+
 
 const camera = new THREE.PerspectiveCamera(
-    45, 
-    1,
-    0.1, 
-    1000);
+  45,
+  1,
+  0.1,
+  1000
+);
 camera.position.z = 13;
 
 const scene = new THREE.Scene();
 let flower;
 let mixer;
+
+const getVisibleSize = () => {
+  const distance = camera.position.z;
+  const visibleHeight = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * distance;
+  const visibleWidth = visibleHeight * camera.aspect;
+
+  return { visibleWidth, visibleHeight };
+};
+
+const placeFlowerInRightCorner = () => {
+  if (!flower || !container.clientWidth || !container.clientHeight) return;
+
+  const { visibleWidth, visibleHeight } = getVisibleSize();
+  const padding = Math.min(visibleWidth, visibleHeight) * 0.04;
+  const desiredScale = container.clientWidth < 760 ? mobileFlowerScale : flowerScale;
+
+  flower.scale.setScalar(desiredScale);
+  flower.position.set(0, 0, 0);
+  flower.updateMatrixWorld(true);
+
+  let box = new THREE.Box3().setFromObject(flower);
+  let size = box.getSize(new THREE.Vector3());
+
+  const fitScale = Math.min(
+    1,
+    (visibleWidth - padding * 2) / size.x,
+    (visibleHeight - padding * 2) / size.y
+  );
+
+  if (fitScale < 1) {
+    flower.scale.setScalar(desiredScale * fitScale);
+    flower.position.set(0, 0, 0);
+    flower.updateMatrixWorld(true);
+    box = new THREE.Box3().setFromObject(flower);
+    size = box.getSize(new THREE.Vector3());
+  }
+
+  const center = box.getCenter(new THREE.Vector3());
+
+  flower.position.x = visibleWidth / 2 - size.x / 2 - padding - center.x;
+  flower.position.y = -visibleHeight / 2 + size.y / 2 + padding - center.y +1;
+};
+
 const loader = new GLTFLoader();
 loader.load('model/test_FLOWER_static.glb', function (gltf) {
   console.log('Model loaded successfully:', gltf);
   flower = gltf.scene;
-  flower.scale.setScalar(flowerScale);
-  ///lower.rotation.x = 50 * Math.PI / 180; // Rotate 25 degrees on the X-axis
-  flower.position.set(flowerX, 0, 0); // keep inside the wider hero background
   scene.add(flower);
+  placeFlowerInRightCorner();
 
   mixer = new THREE.AnimationMixer(flower);
   mixer.clipAction(gltf.animations[0]).play();
@@ -75,12 +116,7 @@ const resizeToHero = () => {
   camera.aspect = width / height;
   camera.updateProjectionMatrix();
   renderer.setSize(width, height, false);
-
-  if (flower) {
-    const isNarrow = width < 760;
-    flower.position.x = isNarrow ? mobileFlowerX : flowerX;
-    flower.scale.setScalar(isNarrow ? mobileFlowerScale : flowerScale);
-  }
+  placeFlowerInRightCorner();
 };
 
 resizeToHero();
@@ -92,9 +128,10 @@ if ('ResizeObserver' in window) {
 }
 
 const reRender3D = () => {
-    requestAnimationFrame(reRender3D);
-    renderer.render(scene, camera);
-    if(mixer) mixer.update(0.01);
+  requestAnimationFrame(reRender3D);
+  renderer.render(scene, camera);
+  if (mixer) mixer.update(0.01);
 };
 
 reRender3D();
+

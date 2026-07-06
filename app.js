@@ -67,7 +67,7 @@ const placeFlowerInRightCorner = () => {
 };
 
 const loader = new GLTFLoader();
-loader.load('model/test_FLOWER_static.glb', function (gltf) {
+loader.load('model/test_FLOWER_animated.glb', function (gltf) {
   console.log('Model loaded successfully:', gltf);
   flower = gltf.scene;
   scene.add(flower);

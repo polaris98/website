@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carolina Proietti — VFX Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Carolina <em>Proietti</em></a>
+  <ul>
+    <li><a href="#work">Reel</a></li>
+    <li><a href="#breakdowns">Breakdowns</a></li>
+    <li><a href="#Curriculum">Curriculum</a></li>
+     <li><a href="#About">About me</a></li>
+  </ul>
+  <button class="nav-cta" href="#contact">Contact me</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero-body">
+  <div class="hero">
+  <div class="hero-eyebrow fade-in">VFX Portfolio 2026</div>
+  <h1 class="fade-in delay-1">
+    Carolina <br> Proietti<br><em>FX Artist</em>
+  </h1>
+  <p class="hero-desc fade-in delay-2">
+    Houdini FX Artist with 4 years of experience and MSc Graduate cum Laude in Computer Science. 
+    Based in Rome. Available for remote and on-site projects.
+  </p>
+  <div class="hero-tags fade-in delay-3">
+    <span class="tag"> Houdini </span>
+    <span class="tag"> Solaris Karma, 3DeLight, Arnold</span>
+    <span class="tag">C++,Python,VEX,Java,Javascript,SQL,HTML,CSS</span>
+    <span class="tag">FX Simulations</span>
+  </div>
+  </div>
+  </div>
+</section>
+
+<!-- SHOWREEL -->
+<section class="reel-section" id="work">
+  <div class="reel-frame" onclick="openVimeoPlayer()" style="background-image: url('thumbnail/thumbnail.png');">
+    <div class="reel-center">
+      <div class="play-ring">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <polygon points="8,5 20,12 8,19" fill="rgba(239,224,205,0.85)"/>
+        </svg>
+      </div>
+      <div class="reel-label">Demo Reel 2025 — 2:14</div>
+    </div>
+  </div>
+  <div class="reel-caption">
+    <span>Selected work 2022–2025</span>
+    <span>Hosted on Vimeo Pro</span>
+  </div>
+</section>
+
+<!-- BREAKDOWNS -->
+<section class="section" id="breakdowns">
+  <div class="section-label">Shot breakdowns</div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterBreakdowns('all', this)">All</button>
+    <button class="filter-btn" onclick="filterBreakdowns('comp', this)">Compositing</button>
+    <button class="filter-btn" onclick="filterBreakdowns('fx', this)">FX Sims</button>
+    <button class="filter-btn" onclick="filterBreakdowns('env', this)">Environments</button>
+  </div>
+
+  <!-- BREAKDOWN 01 -->
+  <div class="breakdown-card" data-type="comp">
+    <div class="before-after">
+      <div class="ba-panel ba-before">
+        <!-- PLATE: Raw shot, grey sky -->
+        <svg class="scene-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Dull grey sky -->
+          <rect width="300" height="140" fill="#2a2825"/>
+          <!-- Flat ground -->
+          <rect y="140" width="300" height="80" fill="#8f2530"/>
+          <!-- Building silhouettes, grey -->
+          <rect x="20" y="80" width="40" height="60" fill="#222018"/>
+          <rect x="70" y="60" width="55" height="80" fill="#201e16"/>
+          <rect x="180" y="70" width="48" height="70" fill="#222018"/>
+          <rect x="238" y="55" width="50" height="85" fill="#1e1c14"/>
+          <!-- Windows, dark -->
+          <rect x="28" y="88" width="8" height="8" fill="#2a2820"/>
+          <rect x="42" y="88" width="8" height="8" fill="#2a2820"/>
+          <rect x="80" y="70" width="8" height="8" fill="#2a2820"/>
+          <rect x="96" y="70" width="8" height="8" fill="#2a2820"/>
+          <rect x="80" y="85" width="8" height="8" fill="#2a2820"/>
+          <!-- Plate label -->
+          <text x="10" y="20" font-family="monospace" font-size="9" fill="rgba(239,224,205,0.25)" letter-spacing="1">PLATE</text>
+        </svg>
+        <div class="ba-label">Before</div>
+      </div>
+      <div class="ba-panel ba-after">
+        <!-- COMP: Sky replacement, colour grade -->
+        <svg class="scene-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Dramatic sunset sky -->
+          <defs>
+            <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#0a1428"/>
+              <stop offset="40%" stop-color="#c03030"/>
+              <stop offset="80%" stop-color="#c03535"/>
+              <stop offset="100%" stop-color="#50d070"/>
+            </linearGradient>
+          </defs>
+          <rect width="300" height="140" fill="url(#sky1)"/>
+          <!-- Sun glow -->
+          <ellipse cx="200" cy="130" rx="40" ry="14" fill="rgba(60,200,80,0.2)"/>
+          <ellipse cx="200" cy="132" rx="18" ry="6" fill="rgba(80,220,100,0.45)"/>
+          <!-- Lens flare streak -->
+          <line x1="120" y1="100" x2="280" y2="60" stroke="rgba(80,220,80,0.1)" stroke-width="4"/>
+          <!-- Ground, warm bounce light -->
+          <rect y="140" width="300" height="80" fill="#8f2530"/>
+          <!-- Buildings, rim-lit -->
+          <rect x="20" y="80" width="40" height="60" fill="#a02a36"/>
+          <rect x="70" y="60" width="55" height="80" fill="#a02a36"/>
+          <rect x="180" y="70" width="48" height="70" fill="#a02a36"/>
+          <rect x="238" y="55" width="50" height="85" fill="#a02a36"/>
+          <!-- Warm lit windows -->
+          <rect x="28" y="88" width="8" height="8" fill="#30a050" opacity="0.7"/>
+          <rect x="42" y="88" width="8" height="8" fill="#208040" opacity="0.5"/>
+          <rect x="80" y="70" width="8" height="8" fill="#30a050" opacity="0.8"/>
+          <rect x="96" y="70" width="8" height="8" fill="#30a050" opacity="0.6"/>
+          <rect x="80" y="85" width="8" height="8" fill="#208040" opacity="0.5"/>
+          <!-- Rim light on building edges -->
+          <rect x="20" y="80" width="2" height="60" fill="rgba(192,48,48,0.35)"/>
+          <rect x="125" y="60" width="2" height="80" fill="rgba(192,48,48,0.3)"/>
+          <!-- Comp label -->
+          <text x="10" y="20" font-family="monospace" font-size="9" fill="rgba(255,180,60,0.4)" letter-spacing="1">COMP</text>
+        </svg>
+        <div class="ba-label">After</div>
+      </div>
+      <div class="divider-line">
+        <div class="divider-handle">⟺</div>
+      </div>
+    </div>
+    <div class="breakdown-info">
+      <div>
+        <div class="bd-num">01 / 03</div>
+        <div class="bd-title">Sky <em>replacement</em><br>& colour grade</div>
+        <div class="bd-project">Feature film — Paramount, 2024</div>
+        <p class="bd-desc">
+          Complete sky replacement on 48 shots across two sequences. 
+          Custom roto-matte for complex architectural silhouettes. 
+          Relighting buildings to match new HDRI, integrated lens flare 
+          passes and atmospheric haze. Final grade matched to director's 
+          reference using DaVinci Resolve.
+        </p>
+      </div>
+      <div class="bd-tools">
+        <span class="bd-tool highlight">Nuke X</span>
+        <span class="bd-tool highlight">DaVinci Resolve</span>
+        <span class="bd-tool">Silhouette</span>
+        <span class="bd-tool">HDRI</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN 02 -->
+  <div class="breakdown-card" data-type="fx">
+    <div class="before-after">
+      <div class="ba-panel ba-before">
+        <svg class="scene-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Simple dark ground, no explosion -->
+          <rect width="300" height="220" fill="#7E212A"/>
+          <!-- Ground plane -->
+          <rect y="160" width="300" height="60" fill="#8f2530"/>
+          <!-- Bare structure -->
+          <rect x="120" y="100" width="60" height="60" fill="#a02a36"/>
+          <rect x="140" y="80" width="20" height="20" fill="#a02a36"/>
+          <!-- Static label -->
+          <text x="10" y="20" font-family="monospace" font-size="9" fill="rgba(239,224,205,0.25)" letter-spacing="1">PLATE</text>
+        </svg>
+        <div class="ba-label">Before</div>
+      </div>
+      <div class="ba-panel ba-after">
+        <svg class="scene-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="blast" cx="50%" cy="60%" r="50%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+              <stop offset="20%" stop-color="#80ff80" stop-opacity="0.8"/>
+              <stop offset="50%" stop-color="#c03030" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#200a00" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="smoke" cx="50%" cy="40%" r="60%">
+              <stop offset="0%" stop-color="#4a4040" stop-opacity="0.9"/>
+              <stop offset="70%" stop-color="#2a2020" stop-opacity="0.5"/>
+              <stop offset="100%" stop-color="#100808" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- Dark bg -->
+          <rect width="300" height="220" fill="#7E212A"/>
+          <rect y="160" width="300" height="60" fill="#8f2530"/>
+          <!-- Debris silhouettes -->
+          <polygon points="110,160 100,140 115,145" fill="#1a1410" opacity="0.8"/>
+          <polygon points="180,160 195,130 185,140" fill="#1a1410" opacity="0.8"/>
+          <polygon points="140,155 130,125 145,135" fill="#181210" opacity="0.7"/>
+          <!-- Smoke cloud -->
+          <ellipse cx="155" cy="80" rx="90" ry="60" fill="url(#smoke)"/>
+          <!-- Fireball -->
+          <ellipse cx="155" cy="130" rx="70" ry="45" fill="url(#blast)"/>
+          <!-- Ground light scatter -->
+          <ellipse cx="155" cy="165" rx="80" ry="12" fill="rgba(192,48,48,0.3)"/>
+          <!-- Sparks -->
+          <line x1="155" y1="120" x2="100" y2="80" stroke="rgba(80,255,80,0.5)" stroke-width="0.8"/>
+          <line x1="155" y1="120" x2="210" y2="70" stroke="rgba(60,220,60,0.4)" stroke-width="0.8"/>
+          <line x1="155" y1="120" x2="80" y2="100" stroke="rgba(50,200,50,0.35)" stroke-width="0.6"/>
+          <line x1="155" y1="120" x2="230" y2="90" stroke="rgba(60,220,60,0.35)" stroke-width="0.6"/>
+          <text x="10" y="20" font-family="monospace" font-size="9" fill="rgba(255,160,40,0.4)" letter-spacing="1">COMP</text>
+        </svg>
+        <div class="ba-label">After</div>
+      </div>
+      <div class="divider-line">
+        <div class="divider-handle">⟺</div>
+      </div>
+    </div>
+    <div class="breakdown-info">
+      <div>
+        <div class="bd-num">02 / 03</div>
+        <div class="bd-title">Explosion <em>FX</em><br>simulation</div>
+        <div class="bd-project">Commercial — Nike, 2024</div>
+        <p class="bd-desc">
+          Procedural explosion sim built in Houdini using a custom 
+          pyro solver with temperature-based combustion. Secondary 
+          debris cache from RBD simulation. Rendered with Karma XPU, 
+          composited in Nuke with deep EXR workflow for volumetric 
+          integration and multi-layer colour grading.
+        </p>
+      </div>
+      <div class="bd-tools">
+        <span class="bd-tool highlight">Houdini</span>
+        <span class="bd-tool highlight">Karma XPU</span>
+        <span class="bd-tool">Nuke X</span>
+        <span class="bd-tool">Deep EXR</span>
+        <span class="bd-tool">RBD</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN 03 -->
+  <div class="breakdown-card" data-type="env">
+    <div class="before-after">
+      <div class="ba-panel ba-before">
+        <svg class="scene-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Green screen plate -->
+          <rect width="300" height="220" fill="#8f2530"/>
+          <rect y="180" width="300" height="40" fill="#7E212A"/>
+          <!-- Actor silhouette shape -->
+          <ellipse cx="150" cy="110" rx="18" ry="22" fill="#7E212A"/>
+          <rect x="136" y="130" width="28" height="50" fill="#7E212A"/>
+          <text x="10" y="20" font-family="monospace" font-size="9" fill="rgba(239,224,205,0.2)" letter-spacing="1">GREENSCREEN</text>
+        </svg>
+        <div class="ba-label">Before</div>
+      </div>
+      <div class="ba-panel ba-after">
+        <svg class="scene-svg" viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="forestsky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7E212A"/>
+              <stop offset="60%" stop-color="#8f2530"/>
+              <stop offset="100%" stop-color="#a02a36"/>
+            </linearGradient>
+            <radialGradient id="moonlight" cx="70%" cy="20%" r="30%">
+              <stop offset="0%" stop-color="#c8d8e8" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#7E212A" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- Night forest bg -->
+          <rect width="300" height="220" fill="url(#forestsky)"/>
+          <rect width="300" height="220" fill="url(#moonlight)"/>
+          <!-- Moon -->
+          <circle cx="210" cy="40" r="14" fill="#EFE0CD" opacity="0.85"/>
+          <circle cx="205" cy="36" r="10" fill="#7E212A" opacity="0.4"/>
+          <!-- Far trees -->
+          <rect x="0"  y="100" width="18" height="120" fill="#7E212A" opacity="0.7"/>
+          <polygon points="0,100 9,60 18,100" fill="#7E212A" opacity="0.8"/>
+          <rect x="20" y="110" width="14" height="110" fill="#7E212A" opacity="0.6"/>
+          <polygon points="20,110 27,78 34,110" fill="#7E212A" opacity="0.7"/>
+          <rect x="260" y="95" width="16" height="125" fill="#7E212A" opacity="0.7"/>
+          <polygon points="260,95 268,58 276,95" fill="#7E212A" opacity="0.8"/>
+          <rect x="278" y="108" width="22" height="112" fill="#7E212A" opacity="0.6"/>
+          <polygon points="278,108 289,72 300,108" fill="#7E212A" opacity="0.7"/>
+          <!-- Mid trees -->
+          <rect x="40" y="120" width="22" height="100" fill="#8f2530"/>
+          <polygon points="40,120 51,80 62,120" fill="#8f2530"/>
+          <rect x="238" y="115" width="24" height="105" fill="#8f2530"/>
+          <polygon points="238,115 250,72 262,115" fill="#8f2530"/>
+          <!-- Ground mist -->
+          <ellipse cx="150" cy="200" rx="200" ry="28" fill="rgba(100,140,180,0.12)"/>
+          <!-- Actor silhouette with rim light -->
+          <ellipse cx="150" cy="110" rx="18" ry="22" fill="#7E212A"/>
+          <rect x="136" y="130" width="28" height="50" fill="#7E212A"/>
+          <!-- Rim light on actor -->
+          <ellipse cx="150" cy="110" rx="19" ry="23" fill="none" stroke="rgba(239,224,205,0.2)" stroke-width="2"/>
+          <text x="10" y="20" font-family="monospace" font-size="9" fill="rgba(100,180,255,0.3)" letter-spacing="1">COMP</text>
+        </svg>
+        <div class="ba-label">After</div>
+      </div>
+      <div class="divider-line">
+        <div class="divider-handle">⟺</div>
+      </div>
+    </div>
+    <div class="breakdown-info">
+      <div>
+        <div class="bd-num">03 / 03</div>
+        <div class="bd-title">Night forest<br><em>environment</em></div>
+        <div class="bd-project">TV Series — Netflix, 2023</div>
+        <p class="bd-desc">
+          Full CG environment replacement on 120+ shots for a supernatural 
+          thriller series. Greenscreen extraction using Nuke's Keyer with 
+          custom edge treatment. 3D forest built in Houdini with procedural 
+          tree placement, integrated with practical actor photography through 
+          careful moonlight relighting and atmospheric mist passes.
+        </p>
+      </div>
+      <div class="bd-tools">
+        <span class="bd-tool highlight">Nuke X</span>
+        <span class="bd-tool highlight">Houdini</span>
+        <span class="bd-tool">SpeedTree</span>
+        <span class="bd-tool">Mantra</span>
+        <span class="bd-tool">Maya</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-box">
+    <div>
+      <div class="section-label" style="margin-bottom: 16px;">Available for work</div>
+      <h2>Let's make something<br><em>unforgettable</em></h2>
+    </div>
+    <div class="contact-actions">
+      <a class="btn-primary" href="mailto:alex@alexrivera.vfx">Email me</a>
+      <a class="btn-secondary" href="#">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Carolina Proietti </span>
+  <span>Rome, Italy · Available worldwide</span>
+</footer>
+
+<!-- VIMEO PLAYER MODAL -->
+<div id="vimeoModal" class="vimeo-modal" onclick="closeVimeoPlayer(event)">
+  <div class="vimeo-modal-content" onclick="event.stopPropagation()">
+    <button class="vimeo-close" onclick="closeVimeoPlayer()">&times;</button>
+    <div class="vimeo-player-wrapper">
+      <iframe src="https://player.vimeo.com/video/1128634773" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  function filterBreakdowns(type, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.breakdown-card').forEach(card => {
+      if (type === 'all' || card.dataset.type === type) {
+        card.style.display = '';
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(10px)';
+        requestAnimationFrame(() => {
+          card.style.transition = 'opacity 0.3s, transform 0.3s';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        });
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Subtle scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.breakdown-card, .stats-row, .contact-box').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  // Vimeo player modal functions
+  function openVimeoPlayer() {
+    const modal = document.getElementById('vimeoModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVimeoPlayer(event) {
+    const modal = document.getElementById('vimeoModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeVimeoPlayer();
+    }
+  });
+
+  </script>
+
+  <div id="container3D"></div>
+  <script type="module" src="app.js"></script>
+
+
+</body>
+</html>

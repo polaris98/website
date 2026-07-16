@@ -358,11 +358,30 @@
 <div id="vimeoModal" class="vimeo-modal" onclick="closeVimeoPlayer(event)">
   <div class="vimeo-modal-content" onclick="event.stopPropagation()">
     <button class="vimeo-close" onclick="closeVimeoPlayer()">&times;</button>
+
     <div class="vimeo-player-wrapper">
-      <iframe src="https://player.vimeo.com/video/1128634773" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      <iframe
+        src="https://player.vimeo.com/video/1128634773"
+        width="640"
+        height="360"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="vimeo-password-note">
+      <p>
+        🔒 <strong>Wanna know the password?</strong><br>
+        <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank" rel="noopener">
+          Contact me on LinkedIn
+        </a>
+        !
+      </p>
     </div>
   </div>
 </div>
+
 
 <script>
   function filterBreakdowns(type, btn) {

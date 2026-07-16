@@ -65,12 +65,16 @@ nav a:hover { color: rgba(239,224,205,0.6); }
   padding: 7px 16px;
   border: 1px solid var(--accent);
   border-radius: 2px;
-  color: var(--accent);
-  background: transparent;
+  color: var(--background);
+  background: var(--accent);
   cursor: pointer; text-transform: uppercase;
   transition: all 0.2s;
 }
-.nav-cta:hover { background: var(--accent); color: var(--bg); }
+.nav-cta:hover { background: var(--text); border: 1px solid rgba(239,224,205,0.6); }
+
+nav a.active {
+  color: var(--accent);
+}
 
 /* HERO */
 .hero {
@@ -353,6 +357,62 @@ nav a:hover { color: rgba(239,224,205,0.6); }
 .stat-label {
   font-size: 10px; text-transform: uppercase;
   letter-spacing: 0.12em; color: var(--muted);
+}
+
+/* ABOUT ME */
+
+
+.about-section {
+  min-height: 50vh;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-intro {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 70px;
+}
+
+.about-photo img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+.about-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.about-gallery img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform .3s ease;
+}
+
+.about-gallery img:hover {
+    transform: scale(1.05);
 }
 
 /* CONTACT */

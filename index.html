@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carolina Proietti — VFX Portfolio</title>
+
+<link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
+<link rel="shortcut icon" href="images/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="images/favicon/site.webmanifest" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -13,14 +20,15 @@
 </head>
 <body>
 
+  <head>
+
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">Carolina <em>Proietti</em></a>
   <ul>
     <li><a href="#work">Reel</a></li>
     <li><a href="#breakdowns">Breakdowns</a></li>
-    <li><a href="#Curriculum">Curriculum</a></li>
-     <li><a href="#About">About me</a></li>
+    <li><a href="#about">About me</a></li>
   </ul>
   <button class="nav-cta" href="#contact">Contact me</button>
 </nav>
@@ -66,7 +74,8 @@
 
 <!-- BREAKDOWNS -->
 <section class="section" id="breakdowns">
-  <div class="section-label">Shot breakdowns</div>
+  <!-- <div class="section-label">Shot breakdowns</div> -->
+  <!-- <h2 class="section-title">Shot breakdowns</h2> -->
 
   <div class="filter-bar">
     <button class="filter-btn active" onclick="filterBreakdowns('all', this)">All</button>
@@ -335,19 +344,44 @@
 </section>
 
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-box">
-    <div>
-      <div class="section-label" style="margin-bottom: 16px;">Available for work</div>
-      <h2>Let's make something<br><em>unforgettable</em></h2>
+<!-- About me -->
+<section class="section about-section" id="about">
+  <div class="about-container">
+
+    <!-- <h2 class="section-title">About Me</h2> -->
+
+    <div class="about-intro">
+
+      <div class="about-photo">
+        <img src="images/me.jpg" alt="Portrait of Your Name">
+      </div>
+
+      <div class="about-text">
+        <p>
+          Hi! I'm <strong>Your Name</strong>, a Technical Artist passionate about
+          bridging the gap between art and technology. I enjoy creating tools,
+          optimizing workflows, and building immersive real-time experiences.
+        </p>
+
+        <p>
+          Outside of work, I love exploring new places, photography, hiking,
+          gaming, and learning new technologies. I believe that creativity comes
+          from experiences beyond the computer screen.
+        </p>
+      </div>
+
     </div>
-    <div class="contact-actions">
-      <a class="btn-primary" href="mailto:alex@alexrivera.vfx">Email me</a>
-      <a class="btn-secondary" href="#">Download CV</a>
+
+    <div class="about-gallery">
+      <img src="images/personal1.jpg" alt="Travel">
+      <img src="images/personal2.jpg" alt="Hiking">
+      <img src="images/personal3.jpg" alt="Photography">
+      <img src="images/personal4.jpg" alt="Game Jam">
     </div>
+
   </div>
 </section>
+
 
 <footer>
   <span>© 2025 Carolina Proietti </span>
@@ -439,6 +473,41 @@
       closeVimeoPlayer();
     }
   });
+
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll("nav ul a");
+
+const navObserver = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting) {
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+      });
+
+      const currentLink = document.querySelector(
+        `nav a[href="#${entry.target.id}"]`
+      );
+
+      if (currentLink) {
+        currentLink.classList.add("active");
+      }
+
+    }
+
+  });
+
+}, {
+  threshold: 0.2
+});
+
+
+sections.forEach(section => {
+  navObserver.observe(section);
+});
 
   </script>
 

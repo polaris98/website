@@ -136,9 +136,27 @@ nav a.active {
   color: var(--muted); line-height: 1.6;
   margin-bottom: 24px;
 }
+
+.hero-links {
+  display: inline-flex;
+  gap: 15px;
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+.hero-links a {
+  color: inherit;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.hero-links a:hover {
+  color: var(--accent);
+}
+
 .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag {
-  font-size: clamp(10px, 1vw, 12px); letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: clamp(10px, 1vw, 10px); letter-spacing: 0.1em; text-transform: uppercase;
   padding: 5px 12px;
   border: 1px solid var(--border2);
   border-radius: 2px; color: var(--muted);
@@ -394,7 +412,26 @@ nav a.active {
 .about-text p {
     margin-bottom: 20px;
     line-height: 1.8;
-    color: #ccc;
+    color: var(--background);
+}
+
+.about-text a,
+.about-text a:link,
+.about-text a:visited {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+}
+
+.about-text a:hover,
+.about-text a:focus {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.about-text a:active {
+  color: inherit;
 }
 
 .about-gallery {
@@ -577,4 +614,80 @@ footer span { font-size: 11px; color: var(--muted); }
   inset: 0;
   z-index: 0;
   pointer-events: none;
+}
+
+
+.website-rating {
+  margin-top: 60px;
+  max-width: 500px;
+}
+
+.website-rating h3 {
+  font-family: var(--font-serif);
+  font-size: 28px;
+}
+
+.website-rating p {
+  opacity: 0.7;
+}
+
+
+/* Stars */
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.stars input {
+  display: none;
+}
+
+.stars label {
+  font-size: 32px;
+  color: rgba(239,224,205,0.3);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.stars label:hover,
+.stars label:hover ~ label,
+.stars input:checked ~ label {
+  color: var(--accent);
+}
+
+
+/* Feedback */
+.website-rating textarea,
+.website-rating input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text);
+
+  font-family: var(--font-mono);
+}
+
+.website-rating textarea {
+  height: 120px;
+  resize: none;
+}
+
+.website-rating button {
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.website-rating button:hover {
+  background: var(--accent);
+  color: var(--bg);
 }

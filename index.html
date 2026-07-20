@@ -11,6 +11,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
 <link rel="manifest" href="images/favicon/site.webmanifest" />
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -36,19 +37,35 @@
 <!-- HERO -->
 <section class="hero-body">
   <div class="hero">
-  <div class="hero-eyebrow fade-in">VFX Portfolio 2026</div>
+  <div class="hero-eyebrow fade-in">VFX Portfolio 2026 </div>
   <h1 class="fade-in delay-1">
     Carolina <br> Proietti<br><em>FX Artist</em>
   </h1>
+
   <p class="hero-desc fade-in delay-2">
-    Houdini FX Artist with 4 years of experience and MSc Graduate cum Laude in Computer Science. 
-    Based in Rome. Available for remote and on-site projects.
-  </p>
+  Houdini FX Artist with <strong>4 years</strong> of experience and 
+  <strong>MSc Graduate cum Laude</strong> in <strong>Computer Science</strong>. 
+  Based in Rome. Available for remote and on-site projects.
+
+  <span class="hero-links">
+    <a href="Carolina_Proietti_Fx_CV_2025.pdf" download title="Download Curriculum">
+      <i class="fa-solid fa-file-pdf"></i>
+    </a>
+
+    <a href="https://www.imdb.com/it/name/nm17240451/" target="_blank" title="IMDb">
+      <i class="fa-brands fa-imdb"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+  </span>
+</p>
+
   <div class="hero-tags fade-in delay-3">
     <span class="tag"> Houdini </span>
     <span class="tag"> Solaris Karma, 3DeLight, Arnold</span>
     <span class="tag">C++,Python,VEX,Java,Javascript,SQL,HTML,CSS</span>
-    <span class="tag">FX Simulations</span>
   </div>
   </div>
   </div>
@@ -355,29 +372,71 @@
       <div class="about-photo">
         <img src="images/me.jpg" alt="Portrait of Your Name">
       </div>
+    
+    <div class="about-text">
+      <p>
+        Hi! I'm <strong>Carolina</strong>, here somethings about me you can't find on my
+        <a href="Carolina_Proietti_Fx_CV_2025.pdf" download>Curriculum</a> or <a href="https://www.imdb.com/it/name/nm17240451/" download>IMDb</a>.
+      </p>
 
-      <div class="about-text">
-        <p>
-          Hi! I'm <strong>Your Name</strong>, a Technical Artist passionate about
-          bridging the gap between art and technology. I enjoy creating tools,
-          optimizing workflows, and building immersive real-time experiences.
-        </p>
-
-        <p>
-          Outside of work, I love exploring new places, photography, hiking,
-          gaming, and learning new technologies. I believe that creativity comes
-          from experiences beyond the computer screen.
-        </p>
-      </div>
+      <p>
+        Outside of work I try not to stare at a screen for the rest of the day, so I read,
+        draw, or watch movies (the last one still involves a screen, but I can't help it — I
+        just need to watch <em>In the Mood for Love</em> one more time).
+        This website started as a way to show my work, brush up on my UI design skills and
+        have some fun outside Houdini. I hope you enjoy it!
+      </p>
+    </div>
 
     </div>
 
     <div class="about-gallery">
-      <img src="images/personal1.jpg" alt="Travel">
-      <img src="images/personal2.jpg" alt="Hiking">
-      <img src="images/personal3.jpg" alt="Photography">
-      <img src="images/personal4.jpg" alt="Game Jam">
+      <img src="images/about_me/Elle.jpg" alt="Processing">
+      <img src="images/about_me/Mood.jpg" alt="Draw 1">
+      <img src="images/about_me/thinking.png" alt="Draw 2">
+      <img src="images/about_me/sexy_boy.png" alt="Draw 3">
     </div>
+
+    <div class="website-rating">
+
+  <h3>Enjoyed my work?</h3>
+  <p>Leave a rating and a little feedback!</p>
+
+  <form action="https://formspree.io/f/xojgwzjg" method="POST">
+
+    <div class="stars">
+      <input type="radio" id="star5" name="rating" value="5">
+      <label for="star5">★</label>
+
+      <input type="radio" id="star4" name="rating" value="4">
+      <label for="star4">★</label>
+
+      <input type="radio" id="star3" name="rating" value="3">
+      <label for="star3">★</label>
+
+      <input type="radio" id="star2" name="rating" value="2">
+      <label for="star2">★</label>
+
+      <input type="radio" id="star1" name="rating" value="1">
+      <label for="star1">★</label>
+    </div>
+
+    <textarea 
+      name="feedback" 
+      placeholder="Your feedback..."
+      required></textarea>
+
+    <input 
+      type="email" 
+      name="email" 
+      placeholder="Your email (optional)">
+
+    <button type="submit">
+      Send feedback
+    </button>
+
+  </form>
+  </div>
 
   </div>
 </section>

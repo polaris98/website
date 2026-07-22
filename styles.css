@@ -76,6 +76,176 @@ nav a.active {
   color: var(--accent);
 }
 
+/* CONTACT */
+/* CONTACT MODAL */
+
+.contact-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+
+  justify-content: center;
+  align-items: center;
+
+  background: #fffefc;
+  animation: fadeIn 0.35s ease;
+}
+
+
+.contact-modal-content {
+  width: min(900px, 90vw);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  position: relative;
+
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+
+/* CLOSE */
+
+.contact-close {
+  position: absolute;
+  top: clamp(20px, 4vh, 40px);
+  right: clamp(20px, 4vw, 50px);
+
+  background: transparent;
+  border: none;
+
+  color: var(--text);
+
+  font-size: clamp(28px, 3vw, 40px);
+
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+.contact-close:hover {
+  color: var(--accent);
+}
+
+
+/* EYEBROW */
+
+.contact-eyebrow {
+
+  font-family: var(--font-mono);
+
+  font-size: clamp(10px, 1vw, 13px);
+
+  letter-spacing: .2em;
+  text-transform: uppercase;
+
+  color: var(--accent);
+
+  margin-bottom: clamp(15px, 2vh, 25px);
+}
+
+
+/* TITLE */
+
+.contact-title {
+
+  margin: 0;
+
+  font-size: clamp(42px, 7vw, 90px);
+
+  line-height: .95;
+
+  font-weight: 300;
+
+  max-width: 900px;
+}
+
+
+.contact-title em {
+
+  font-style: italic;
+
+  color: var(--accent);
+}
+
+
+/* DESCRIPTION */
+
+.contact-subtitle {
+
+  max-width: min(550px, 80vw);
+
+  margin-top: clamp(20px, 3vh, 35px);
+  margin-bottom: clamp(35px, 6vh, 70px);
+
+  font-size: clamp(14px, 1.5vw, 20px);
+
+  line-height: 1.6;
+
+  opacity: .75;
+}
+
+
+/* LINKS */
+
+.contact-items {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: clamp(10px, 2vh, 20px);
+}
+
+
+.contact-items a {
+
+  color: var(--background);
+
+  text-decoration: none;
+
+  font-size: clamp(20px, 3vw, 38px);
+
+  transition:
+    color .2s ease,
+    letter-spacing .2s ease;
+}
+
+
+.contact-items a:hover {
+
+  color: var(--accent);
+
+  letter-spacing: .04em;
+}
+
+
+/* SMALL SCREENS */
+
+@media (max-height: 700px) {
+
+  .contact-title {
+    font-size: clamp(36px, 6vw, 60px);
+  }
+
+  .contact-subtitle {
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+
+  .contact-items {
+    gap: 8px;
+  }
+
+}
+
 /* HERO */
 .hero {
   padding: 70px 32px 60px;

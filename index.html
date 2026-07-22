@@ -31,8 +31,47 @@
     <li><a href="#breakdowns">Breakdowns</a></li>
     <li><a href="#about">About me</a></li>
   </ul>
-  <button class="nav-cta" href="#contact">Contact me</button>
+  <button class="nav-cta" onclick="openContactModal()">
+  Contact me
+</button>
 </nav>
+
+<!-- CONTACT -->
+<div id="contactModal" class="contact-modal" onclick="closeContactModal(event)">
+  <div class="contact-modal-content" onclick="event.stopPropagation()">
+
+    <button class="contact-close" onclick="closeContactModal()">&times;</button>
+
+    <div class="contact-eyebrow">Available worldwide</div>
+
+    <h1 class="contact-title">
+      Let's create something
+      <em>unforgettable.</em>
+    </h1>
+
+    <p class="contact-subtitle">
+      Available for feature films, commercials and freelance projects.
+    </p>
+
+    <div class="contact-items">
+
+      <a href="mailto:your@email.com">
+        your@email.com
+      </a>
+
+      <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2"
+         target="_blank">
+        LinkedIn
+      </a>
+
+      <!-- <a href="Carolina_Proietti_Fx_CV_2025.pdf" download>
+        Download CV
+      </a> -->
+
+    </div>
+
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero-body">
@@ -63,7 +102,7 @@
 </p>
 
   <div class="hero-tags fade-in delay-3">
-    <span class="tag"> Houdini </span>
+    <span class="tag"> Large scale Pyro,Flip,Particles sims </span>
     <span class="tag"> Solaris Karma, 3DeLight, Arnold</span>
     <span class="tag">C++,Python,VEX,Java,Javascript,SQL,HTML,CSS</span>
   </div>
@@ -477,6 +516,17 @@
 
 
 <script>
+  
+  function openContactModal() {
+    document.getElementById("contactModal").style.display = "flex";
+    document.body.style.overflow = "hidden";
+}
+
+function closeContactModal() {
+    document.getElementById("contactModal").style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
   function filterBreakdowns(type, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');

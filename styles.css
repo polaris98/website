@@ -413,20 +413,56 @@ nav a.active {
 
 /* BREAKDOWN SECTION */
 /* LATEST WORK */
-
+/* BREAKDOWN SECTION */
+/* LATEST WORK */
 .work-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
 
-  display:flex;
+  /* 1. REMOVE scroll-snap-type OR set to none */
+  scroll-snap-type: none;
 
-  gap:30px;
+  /* Smooth momentum scrolling for trackpads and mobile touch */
+  -webkit-overflow-scrolling: touch; 
 
-  overflow-x:auto;
+  padding-bottom: 20px;
 
-  scroll-snap-type:x mandatory;
-
-  padding-bottom:20px;
-
+  /* Full-bleed setup with initial left margin offset */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: 20px; /* Your desired initial left margin */
+  padding-right: 20px;
+  box-sizing: border-box;
 }
+
+.work-card {
+  position: relative;
+  min-width: min(70vw, 700px);
+  height: 380px;
+  overflow: hidden;
+  border: 1px solid var(--border2);
+  text-decoration: none;
+
+  /* 2. REMOVE scroll-snap-align from here */
+  /* scroll-snap-align: start; */
+}
+
+/* 3. Break out to full viewport width if wrapped in a padded parent container */
+.work-carousel {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
 
 
 .work-carousel::-webkit-scrollbar {
@@ -440,7 +476,7 @@ nav a.active {
 
   min-width:min(70vw,700px);
 
-  height:clamp(240px, 40vw, 380px);
+  height:380px;
 
   overflow:hidden;
 
@@ -499,7 +535,7 @@ nav a.active {
 
   color:var(--text);
 
-  font-size: clamp(20px, 2.6vw, 34px);
+  font-size:32px;
 
 }
 
@@ -568,8 +604,7 @@ nav a.active {
 .section {
     max-width: 1100px;
     margin: 0 auto;
-    padding-left: 32px;
-    padding-right: 32px;
+    
 }
 
 .about-container {

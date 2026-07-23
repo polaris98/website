@@ -1,5 +1,4 @@
-﻿
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+﻿*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --bg: #7E212A;
@@ -19,6 +18,11 @@
 
 html { scroll-behavior: smooth; }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
 
   color: var(--bg);
@@ -26,6 +30,11 @@ body {
   font-size: 13px;
   line-height: 1.6;
   min-height: 100vh;
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
 }
 
 /* NOISE TEXTURE OVERLAY */
@@ -40,35 +49,43 @@ body::before {
 
 /* NAV */
 nav {
-  position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 100;
-  display: flex; align-items: center; gap: 8px;
+  position: fixed; top: clamp(10px, 2.5vw, 20px); left: 50%; transform: translateX(-50%); z-index: 100;
+  display: flex; align-items: center; gap: clamp(4px, 1vw, 8px);
   padding: 0;
   border: none;
   background: transparent;
+  max-width: 96vw;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+nav::-webkit-scrollbar { display: none; }
 .logo { display: none; }
 .logo em { font-style: italic; color: var(--accent); }
-nav ul { list-style: none; display: flex; gap: 8px; }
+nav ul { list-style: none; display: flex; gap: clamp(4px, 1vw, 8px); flex-shrink: 0; }
 nav a {
   color: #EFE0CD; text-decoration: none;
-  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 7px 16px;
+  font-size: clamp(9px, 1vw, 11px); letter-spacing: 0.1em; text-transform: uppercase;
+  padding: clamp(6px, 1vw, 7px) clamp(10px, 1.8vw, 16px);
   border: none;
   border-radius: 2px;
   background: transparent;
   transition: color 0.2s;
+  white-space: nowrap;
 }
 nav a:hover { color: rgba(239,224,205,0.6); }
 .nav-cta {
   font-family: var(--font-mono);
-  font-size: 11px; letter-spacing: 0.08em;
-  padding: 7px 16px;
+  font-size: clamp(9px, 1vw, 11px); letter-spacing: 0.08em;
+  padding: clamp(6px, 1vw, 7px) clamp(10px, 1.8vw, 16px);
   border: 1px solid var(--accent);
   border-radius: 2px;
   color: var(--background);
   background: var(--accent);
   cursor: pointer; text-transform: uppercase;
   transition: all 0.2s;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .nav-cta:hover { background: var(--text); border: 1px solid rgba(239,224,205,0.6); }
 
@@ -316,7 +333,7 @@ nav a.active {
 
 .hero-links a {
   color: inherit;
-  font-size: 20px;
+  font-size: clamp(18px, 2vw, 22px);
   text-decoration: none;
 }
 
@@ -423,7 +440,7 @@ nav a.active {
 
   min-width:min(70vw,700px);
 
-  height:380px;
+  height:clamp(240px, 40vw, 380px);
 
   overflow:hidden;
 
@@ -482,7 +499,7 @@ nav a.active {
 
   color:var(--text);
 
-  font-size:32px;
+  font-size: clamp(20px, 2.6vw, 34px);
 
 }
 
@@ -532,7 +549,7 @@ nav a.active {
 .stat-cell:last-child { border-right: none; }
 .stat-num {
   font-family: var(--font-display);
-  font-size: 40px; font-weight: 300;
+  font-size: clamp(28px, 3.2vw, 44px); font-weight: 300;
   color: var(--accent); line-height: 1;
   margin-bottom: 8px;
 }
@@ -560,8 +577,8 @@ nav a.active {
 
 .about-intro {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 60px;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: clamp(28px, 4vw, 60px);
     align-items: center;
     margin-bottom: 70px;
 }
@@ -624,13 +641,14 @@ nav a.active {
 }
 .contact-box {
   border: 1px solid var(--border2);
-  border-radius: 4px; padding: 48px;
+  border-radius: 4px; padding: clamp(28px, 4vw, 48px);
   background: var(--surface);
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; flex-wrap: wrap; gap: 24px;
+  justify-content: space-between; align-items: center;
 }
 .contact-box h2 {
   font-family: var(--font-display);
-  font-size: 36px; font-weight: 300;
+  font-size: clamp(24px, 3.2vw, 38px); font-weight: 300;
 }
 .contact-box h2 em { font-style: italic; color: var(--accent); }
 .contact-actions { display: flex; gap: 12px; }
@@ -788,7 +806,7 @@ footer span { font-size: 11px; color: var(--muted); }
 
 .website-rating h3 {
   font-family: var(--font-serif);
-  font-size: 28px;
+  font-size: clamp(20px, 2.4vw, 30px);
 }
 
 .website-rating p {
@@ -854,4 +872,262 @@ footer span { font-size: 11px; color: var(--muted); }
 .website-rating button:hover {
   background: var(--accent);
   color: var(--bg);
+}
+
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+/* ---------- Large screens (2K+) ---------- */
+
+@media (min-width: 1800px) {
+
+  html{
+    font-size:18px;
+  }
+
+  .hero{
+    max-width:1600px;
+  }
+
+  .section{
+    max-width:1700px;
+    margin:auto;
+  }
+
+  .reel-frame{
+    max-width:1600px;
+  }
+
+}
+
+
+/* ---------- Laptop ---------- */
+
+@media (max-width:1200px){
+
+  .hero{
+    width:min(90vw,900px);
+  }
+
+  .section{
+    width:min(92vw,1100px);
+  }
+
+}
+
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:900px){
+
+  nav{
+
+    max-width:92vw;
+
+  }
+
+  .hero h1{
+
+    font-size:clamp(56px,10vw,90px);
+
+    line-height:.9;
+
+  }
+
+  .hero-desc{
+
+    width:100%;
+
+    font-size:17px;
+
+  }
+
+  .hero-tags{
+
+    flex-wrap:wrap;
+
+  }
+
+  .about-intro{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+
+  }
+
+  .about-photo{
+
+    width:280px;
+
+    margin:auto;
+
+  }
+
+  .about-gallery{
+
+    grid-template-columns:repeat(2,1fr);
+
+  }
+
+  .breakdown-info{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+
+  }
+
+}
+
+
+/* ---------- Phone ---------- */
+
+@media (max-width:600px){
+
+  body{
+
+    overflow-x:hidden;
+
+  }
+
+  nav{
+
+    max-width:96vw;
+
+  }
+
+  .hero h1{
+
+    font-size:clamp(42px,16vw,72px);
+
+  }
+
+  .hero{
+
+    padding-top:120px;
+
+  }
+
+  .hero-desc{
+
+    font-size:15px;
+
+    line-height:1.6;
+
+  }
+
+  .hero-links{
+
+    gap:18px;
+
+  }
+
+  .hero-links a{
+
+    font-size:22px;
+
+  }
+
+  .hero-tags{
+
+    gap:8px;
+
+  }
+
+  .tag{
+
+    font-size:10px;
+
+    padding:6px 10px;
+
+  }
+
+  .reel-frame{
+
+    border-radius:6px;
+
+  }
+
+  .filter-bar{
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+  }
+
+  .before-after{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .divider-line{
+
+    display:none;
+
+  }
+
+  .about-gallery{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .about-photo img{
+
+    width:100%;
+
+  }
+
+  .contact-box{
+
+    padding:40px 25px;
+
+  }
+
+  .contact-actions{
+
+    flex-direction:column;
+
+  }
+
+  .btn-primary,
+  .btn-secondary{
+
+    width:100%;
+
+    text-align:center;
+
+  }
+
+}
+
+
+/* ---------- Very small phones ---------- */
+
+@media (max-width:400px){
+
+  .hero h1{
+
+    font-size:38px;
+
+  }
+
+  .hero-desc{
+
+    font-size:14px;
+
+  }
+
+  .section{
+
+    width:94vw;
+
+  }
+
 }

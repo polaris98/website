@@ -395,114 +395,108 @@ nav a.active {
 }
 
 /* BREAKDOWN SECTION */
-.section {
-  position: relative; z-index: 1;
-  padding: 0 32px 80px;
-  max-width: 1100px; margin: 0 auto;
-}
-.section-label {
-  font-size: 11px; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--muted);
-  margin-bottom: 32px;
-  display: flex; align-items: center; gap: 12px;
-}
-.section-label::after {
-  content: ''; flex: 1; height: 1px;
-  background: var(--border);
+/* LATEST WORK */
+
+.work-carousel {
+
+  display:flex;
+
+  gap:30px;
+
+  overflow-x:auto;
+
+  scroll-snap-type:x mandatory;
+
+  padding-bottom:20px;
+
 }
 
-/* BREAKDOWN CARD */
-.breakdown-card {
-  display: grid; grid-template-columns: 1fr 1fr;
-  border: 1px solid var(--border2);
-  border-radius: 4px; overflow: hidden;
-  margin-bottom: 2px;
-  background: var(--surface);
-  transition: border-color 0.2s;
-}
-.breakdown-card:hover { border-color: var(--border2); }
-.breakdown-card:last-child { margin-bottom: 0; }
 
-.before-after {
-  display: grid; grid-template-columns: 1fr 1fr;
-  position: relative; height: 220px; overflow: hidden;
-}
-.ba-panel {
-  position: relative; overflow: hidden;
-  cursor: col-resize;
-}
-.ba-before {
-  background: #a02a36;
-  display: flex; align-items: center; justify-content: center;
-}
-.ba-after {
-  background: #8f2530;
-  display: flex; align-items: center; justify-content: center;
-}
-.ba-label {
-  position: absolute; bottom: 10px;
-  font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 3px 8px;
-  background: rgba(0,0,0,0.6); border-radius: 2px;
-  color: rgba(239,224,205,0.5);
-}
-.ba-before .ba-label { left: 10px; }
-.ba-after .ba-label { right: 10px; }
-
-/* SVG scene illustrations */
-.scene-svg { width: 100%; height: 100%; }
-
-.divider-line {
-  position: absolute; top: 0; bottom: 0;
-  left: 50%; width: 1px;
-  background: rgba(239,224,205,0.2);
-  z-index: 5;
-}
-.divider-handle {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: rgba(239,224,205,0.15);
-  border: 1px solid rgba(239,224,205,0.4);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 6; font-size: 10px; color: rgba(239,224,205,0.6);
+.work-carousel::-webkit-scrollbar {
+  height:5px;
 }
 
-.breakdown-info {
-  padding: 28px 32px;
-  border-left: 1px solid var(--border);
-  display: flex; flex-direction: column; justify-content: space-between;
+
+.work-card {
+
+  position:relative;
+
+  min-width:min(70vw,700px);
+
+  height:380px;
+
+  overflow:hidden;
+
+  border:1px solid var(--border2);
+
+  text-decoration:none;
+
+  scroll-snap-align:start;
+
 }
-.bd-num {
-  font-size: 11px; color: var(--accent);
-  letter-spacing: 0.1em; margin-bottom: 12px;
+
+
+.work-card img {
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:transform .5s ease;
+
 }
-.bd-title {
-  font-family: var(--font-display);
-  font-size: 26px; font-weight: 300; line-height: 1.2;
-  margin-bottom: 8px;
+
+
+
+.work-card:hover img {
+
+  transform:scale(1.05);
+
 }
-.bd-title em { font-style: italic; }
-.bd-project {
-  font-size: 11px; color: var(--muted);
-  margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.1em;
+
+
+
+.work-overlay {
+
+  position:absolute;
+
+  bottom:0;
+  left:0;
+  right:0;
+
+  padding:30px;
+
+  background:
+  linear-gradient(
+    transparent,
+    rgba(0,0,0,.8)
+  );
+
 }
-.bd-desc {
-  font-size: 12px; color: var(--muted);
-  line-height: 1.8; flex: 1;
-  margin-bottom: 24px;
+
+
+.work-overlay h3 {
+
+  margin:0;
+
+  color:var(--text);
+
+  font-size:32px;
+
 }
-.bd-tools { display: flex; flex-wrap: wrap; gap: 6px; }
-.bd-tool {
-  font-size: 10px; letter-spacing: 0.08em;
-  padding: 3px 10px;
-  border: 1px solid var(--border2);
-  border-radius: 2px; color: var(--muted);
-}
-.bd-tool.highlight {
-  border-color: var(--accent);
-  color: var(--accent);
+
+
+.work-overlay p {
+
+  color:var(--accent);
+
+  font-family:var(--font-mono);
+
+  font-size:12px;
+
+  text-transform:uppercase;
+
 }
 
 /* FILTER BAR */

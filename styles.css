@@ -568,6 +568,7 @@ nav a.active {
 .about-container {
     max-width: 1200px;
     margin: auto;
+    margin-top: 70px;
 }
 
 .section-title {
@@ -584,7 +585,7 @@ nav a.active {
 }
 
 .about-photo img {
-    width: 100%;
+    width: 80%;
     border-radius: 12px;
     object-fit: cover;
     display: block;

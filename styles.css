@@ -953,17 +953,11 @@ footer span { font-size: 11px; color: var(--muted); }
 
   .about-intro{
 
-    grid-template-columns:1fr;
+    grid-template-columns:minmax(140px,200px) 1fr;
 
-    gap:40px;
+    gap:clamp(20px,3vw,32px);
 
-  }
-
-  .about-photo{
-
-    width:280px;
-
-    margin:auto;
+    align-items:start;
 
   }
 
@@ -1069,6 +1063,14 @@ footer span { font-size: 11px; color: var(--muted); }
   .divider-line{
 
     display:none;
+
+  }
+
+  .about-intro{
+
+    grid-template-columns:minmax(96px,130px) 1fr;
+
+    gap:16px;
 
   }
 

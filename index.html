@@ -123,7 +123,6 @@
     </div>
   </div>
   <div class="reel-caption">
-    <span>Selected work 2022–2025</span>
     <span>Hosted on Vimeo Pro</span>
   </div>
 </section>
@@ -131,11 +130,6 @@
 <!-- LATEST WORK CAROUSEL -->
 
 <section class="section latest-work" id="breakdowns">
-
-  <div class="section-label">
-    Latest Work
-  </div>
-
 
   <div class="work-carousel">
 
@@ -387,39 +381,43 @@ function closeContactModal() {
   });
 
 
-const sections = document.querySelectorAll("section[id]");
+/* NAV ACTIVE SECTION */
+
 const navLinks = document.querySelectorAll("nav ul a");
 
-const navObserver = new IntersectionObserver((entries) => {
+function updateActiveNav() {
 
-  entries.forEach(entry => {
+  const scrollPosition = window.scrollY + window.innerHeight * 0.35;
 
-    if (entry.isIntersecting) {
+  let currentSection = null;
 
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-      });
+  document.querySelectorAll("section[id]").forEach(section => {
 
-      const currentLink = document.querySelector(
-        `nav a[href="#${entry.target.id}"]`
-      );
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
 
-      if (currentLink) {
-        currentLink.classList.add("active");
-      }
-
+    if (
+      scrollPosition >= sectionTop &&
+      scrollPosition < sectionBottom
+    ) {
+      currentSection = section.id;
     }
 
   });
 
-}, {
-  threshold: 0.2
-});
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    if (currentSection && link.getAttribute("href") === `#${currentSection}`) {
+      link.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", updateActiveNav);
+window.addEventListener("load", updateActiveNav);
 
 
-sections.forEach(section => {
-  navObserver.observe(section);
-});
 
   </script>
 

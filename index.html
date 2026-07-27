@@ -136,16 +136,16 @@
 
     <a href="projects/film-one.html" class="work-card">
 
-      <img src="images/projects/film-one-thumb.jpg">
+      <img src="images/projects/film-one-thumb.png">
 
       <div class="work-overlay">
 
         <h3>
-          Film Title
+          L'Abbaglio · 2026
         </h3>
 
         <p>
-          Houdini FX · 2026
+          Pyro FX · 3DELight 
         </p>
 
       </div>
@@ -156,16 +156,16 @@
 
     <a href="projects/film-two.html" class="work-card">
 
-      <img src="images/projects/film-two-thumb.jpg">
+      <img src="images/projects/film-two-thumb.png">
 
       <div class="work-overlay">
 
         <h3>
-          Another Project
+          Il Conte di Montecristo · 2025  
         </h3>
 
         <p>
-          FX Simulation · 2025
+          FLip Simulation · 3DELight 
         </p>
 
       </div>
@@ -418,6 +418,50 @@ window.addEventListener("scroll", updateActiveNav);
 window.addEventListener("load", updateActiveNav);
 
 
+/* Click-and-drag mouse scrolling for .work-carousel
+   (native overflow-x:auto only responds to touch/trackpad, not mouse drag) */
+(function () {
+  const carousel = document.querySelector('.work-carousel');
+  if (!carousel) return;
+
+  let isDown = false;
+  let startX = 0;
+  let scrollStart = 0;
+  let moved = false;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    moved = false;
+    carousel.classList.add('is-dragging');
+    startX = e.pageX;
+    scrollStart = carousel.scrollLeft;
+  });
+
+  window.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.classList.remove('is-dragging');
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const dx = e.pageX - startX;
+    if (Math.abs(dx) > 4) moved = true; // small threshold so plain clicks still work
+    carousel.scrollLeft = scrollStart - dx;
+  });
+
+  // Prevent the link from navigating right after a drag
+  carousel.addEventListener(
+    'click',
+    (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    },
+    true
+  );
+})();
 
   </script>
 

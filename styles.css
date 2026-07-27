@@ -356,9 +356,12 @@ nav a.active {
 }
 
 /* HERO */
+/* FIX: unified max-width (1600px) and fluid horizontal padding shared
+   across .hero / .reel-section / .section so their left/right edges
+   line up at every viewport size, including 2K/4K screens. */
 .hero {
-  padding: 70px 32px 60px;
-  max-width: 1100px; margin: 0 auto;
+  padding: 70px clamp(20px, 5vw, 60px) 60px;
+  max-width: 1600px; margin: 0 auto;
   position: relative; z-index: 1;
   display: flex; flex-direction: column; justify-content: center;
   min-height: calc(100vh - 70px);
@@ -444,8 +447,8 @@ nav a.active {
 /* REEL SECTION */
 .reel-section {
   position: relative; z-index: 1;
-  padding: var(--section-space) 5%;
-  max-width: 2100px; 
+  padding: var(--section-space) clamp(20px, 5vw, 60px);
+  max-width: 1600px;
   margin: 0 auto;
 }
 .reel-frame {
@@ -506,29 +509,54 @@ nav a.active {
 /* BREAKDOWN SECTION */
 
 
+/* FIX: .work-carousel now goes truly full-bleed (screen width) via the
+   parent .latest-work section, using 100% width rather than 100vw — this
+   avoids the scrollbar-width bug entirely (100vw counts the scrollbar,
+   100% of the body does not), so it stays perfectly flush left/right at
+   any viewport size, no matter what other sections are doing.
+   Left/right inset padding is applied on the carousel itself, so cards
+   don't touch the screen edge. Also made it click-and-drag scrollable
+   with the mouse (see JS in app.js / inline script — grabbing.js logic
+   toggles .is-dragging and sets scrollLeft on pointer move). */
+.latest-work {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .work-carousel {
   display: flex;
   gap: 30px;
   overflow-x: auto;
 
-  /* 1. REMOVE scroll-snap-type OR set to none */
   scroll-snap-type: none;
 
   /* Smooth momentum scrolling for trackpads and mobile touch */
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch;
 
   padding-bottom: 20px;
-
-  /* Full-bleed setup with initial left margin offset */
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding-left: 20px; /* Your desired initial left margin */
-  padding-right: 20px;
+  
   box-sizing: border-box;
+
+  cursor: grab;
+  user-select: none;
+
+  /* Hide scrollbar but keep scroll functionality */
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE / old Edge */
+}
+
+.work-carousel::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, new Edge */
+}
+
+.work-carousel.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+}
+
+.work-carousel.is-dragging .work-card {
+  pointer-events: none; /* stop link clicks from firing mid-drag */
 }
 
 .work-card {
@@ -538,28 +566,9 @@ nav a.active {
   overflow: hidden;
   border: 1px solid var(--border2);
   text-decoration: none;
-
-  /* 2. REMOVE scroll-snap-align from here */
-  /* scroll-snap-align: start; */
+  flex: 0 0 auto;
 }
 
-/* 3. Break out to full viewport width if wrapped in a padded parent container */
-.work-carousel {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  box-sizing: border-box;
-  
-}
-
-
-
-.work-carousel::-webkit-scrollbar {
-  height:5px;
-}
 
 
 .work-card {
@@ -696,11 +705,12 @@ nav a.active {
   padding-bottom: var(--section-space);
 }
 
+/* FIX: max-width unified to 1600px (was 1100px) and horizontal padding
+   added (was 0) so this matches .hero and .reel-section exactly. */
 .section {
-    max-width: 1100px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding-top: var(--section-space);
-    padding-bottom: var(--section-space);
+    padding: var(--section-space) clamp(20px, 5vw, 60px);
 }
 
 .about-container {
@@ -774,8 +784,8 @@ nav a.active {
 /* CONTACT */
 .contact-section {
   position: relative; z-index: 1;
-  max-width: 1100px; margin: 0 auto;
-  padding: var(--section-space) 32px;
+  max-width: 1600px; margin: 0 auto;
+  padding: var(--section-space) clamp(20px, 5vw, 60px);
 }
 .contact-box {
   border: 1px solid var(--border2);
@@ -817,7 +827,7 @@ nav a.active {
 footer {
   position: relative; z-index: 1;
   border-top: 1px solid var(--border);
-  padding: 24px 32px;
+  padding: 24px clamp(20px, 5vw, 60px);
   display: flex; justify-content: space-between; align-items: center;
   max-width: 100%;
 }
@@ -1090,24 +1100,15 @@ footer span { font-size: 11px; color: var(--); }
    ========================================================== */
 
 /* ---------- Large screens (2K+) ---------- */
+/* FIX: removed the conflicting max-width overrides that used to live here
+   (.hero 1600px, .section 1700px, .reel-frame 1600px) — .hero, .reel-section
+   and .section now already share the same 1600px max-width + fluid padding
+   defined above, so no override is needed and nothing can drift out of sync. */
 
 @media (min-width: 1800px) {
 
   html{
     font-size:18px;
-  }
-
-  .hero{
-    max-width:1600px;
-  }
-
-  .section{
-    max-width:1700px;
-    margin:auto;
-  }
-
-  .reel-frame{
-    max-width:1600px;
   }
 
 }

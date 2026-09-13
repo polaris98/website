@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carolina Proietti — Portfolio</title>
+  <title>Carolina Proietti — FX Technical Director</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- NAVIGATION -->
   <nav>
+    <a href="#" class="logo">CP</a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
@@ -17,21 +18,46 @@
     <button class="nav-cta" id="openContact">Contact</button>
   </nav>
 
-  <!-- HERO SECTION -->
-  <div class="hero-body">
-    <div id="container3D"></div>
-    <section class="hero">
-      <div class="hero-eyebrow">FX Technical Director & Artist</div>
-      <h1>Carolina <em>Proietti</em></h1>
-      <p class="hero-desc">
-        Crafting complex simulations and visual effects with Houdini. Blending technical precision with artistic vision.
-      </p>
-      <div class="hero-actions">
-        <button class="hero-reel-btn" id="openVimeo">Watch Reel <span>▶</span></button>
-        <button class="hero-cv-btn" id="openCv">View CV</button>
-      </div>
-    </section>
+  
+<!-- HERO -->
+<section class="hero-body" id="work">
+  <div class="hero">
+  <div class="hero-eyebrow fade-in">VFX Portfolio 2026 </div>
+  <h1 class="fade-in delay-1">
+    Carolina <br> Proietti<br><em>FX Artist</em>
+  </h1>
+
+  <p class="hero-desc fade-in delay-2">
+  Houdini FX Artist with <strong>4 years</strong> of experience and 
+  <strong>MSc Graduate cum Laude</strong> in <strong>Computer Science</strong>. 
+  Based in Rome. Available for remote and on-site projects.
+
+  <span class="hero-links">
+    <a href="Carolina_Proietti_Fx_CV_2025.pdf" download title="Download Curriculum">
+      <i class="fa-solid fa-file-lines"></i>
+    </a>
+
+    <a href="https://www.imdb.com/it/name/nm17240451/" target="_blank" title="IMDb">
+      <i class="fa-brands fa-imdb"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+  </span>
+</p>
+
+  <div class="hero-actions fade-in delay-3">
+    <button class="hero-reel-btn" onclick="openVimeoPlayer()">
+      <i class="fa-solid fa-play"></i> Watch Reel <span>(2:14)</span>
+    </button>
+    <button class="hero-cv-btn" onclick="openCvModal()">
+      <i class="fa-solid fa-file-lines"></i> View CV
+    </button>
   </div>
+  </div>
+  <div id="container3D"></div>
+</section>
 
   <!-- ABOUT ME -->
   <section class="section about-section" id="about">

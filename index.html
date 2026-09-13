@@ -15,215 +15,113 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+
+<!-- THREE.JS IMPORTMAP (Required for ES Module imports inside stars.js) -->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+    }
+  }
+</script>
 </head>
 <body>
-
-  <head>
 
 <!-- NAV -->
 <nav>
   <a class="logo" href="#">Carolina <em>Proietti</em></a>
   <ul>
     <li><a href="#work">Reel</a></li>
-    <li><a href="#breakdowns">Breakdowns</a></li>
+    <li><a href="javascript:void(0)" onclick="openCvModal()">Curriculum</a></li>
     <li><a href="#about">About </a></li>
   </ul>
   <button class="nav-cta" onclick="openContactModal()">
-  Contact me
-</button>
+    Contact me
+  </button>
 </nav>
 
-<!-- CONTACT -->
+<!-- CONTACT MODAL -->
 <div id="contactModal" class="contact-modal" onclick="closeContactModal(event)">
   <div class="contact-modal-content" onclick="event.stopPropagation()">
-
     <button class="contact-close" onclick="closeContactModal()">&times;</button>
-
     <div class="contact-eyebrow">Available worldwide</div>
-
     <h1 class="contact-title">
       Let's create something
       <em>unforgettable.</em>
     </h1>
-
     <p class="contact-subtitle">
       Available for feature films, commercials and freelance projects.
     </p>
-
     <div class="contact-items">
-
-      <a href="mailto:your@email.com">
-        your@email.com
-      </a>
-
-      <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2"
-         target="_blank">
-        LinkedIn
-      </a>
-
-      <!-- <a href="Carolina_Proietti_Fx_CV_2025.pdf" download>
-        Download CV
-      </a> -->
-
+      <a href="mailto:your@email.com">your@email.com</a>
+      <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank">LinkedIn</a>
     </div>
-
   </div>
 </div>
 
 <!-- HERO -->
-<section class="hero-body">
+<section class="hero-body" id="work">
   <div class="hero">
-  <div class="hero-eyebrow fade-in">VFX Portfolio 2026 </div>
-  <h1 class="fade-in delay-1">
-    Carolina <br> Proietti<br><em>FX Artist</em>
-  </h1>
+    <div class="hero-eyebrow fade-in">VFX Portfolio 2026 </div>
+    <h1 class="fade-in delay-1">
+      Carolina <br> Proietti<br><em>FX Artist</em>
+    </h1>
 
-  <p class="hero-desc fade-in delay-2">
-  Houdini FX Artist with <strong>4 years</strong> of experience and 
-  <strong>MSc Graduate cum Laude</strong> in <strong>Computer Science</strong>. 
-  Based in Rome. Available for remote and on-site projects.
+    <p class="hero-desc fade-in delay-2">
+      Houdini FX Artist with <strong>4 years</strong> of experience and 
+      <strong>MSc Graduate cum Laude</strong> in <strong>Computer Science</strong>. 
+      Based in Rome. Available for remote and on-site projects.
 
-  <span class="hero-links">
-    <a href="Carolina_Proietti_Fx_CV_2025.pdf" download title="Download Curriculum">
-      <i class="fa-solid fa-file-lines"></i>
-    </a>
+      <span class="hero-links">
+        <a href="Carolina_Proietti_Fx_CV_2025.pdf" download title="Download Curriculum">
+          <i class="fa-solid fa-file-lines"></i>
+        </a>
+        <a href="https://www.imdb.com/it/name/nm17240451/" target="_blank" title="IMDb">
+          <i class="fa-brands fa-imdb"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank" title="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </span>
+    </p>
 
-    <a href="https://www.imdb.com/it/name/nm17240451/" target="_blank" title="IMDb">
-      <i class="fa-brands fa-imdb"></i>
-    </a>
-
-    <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank" title="LinkedIn">
-      <i class="fa-brands fa-linkedin"></i>
-    </a>
-  </span>
-</p>
-
-  <!-- <div class="hero-tags fade-in delay-3">
-    <span class="tag"> Large scale Pyro,Flip,Particles sims </span>
-    <span class="tag"> Solaris Karma, 3DeLight, Arnold</span>
-    <span class="tag">C++,Python,VEX,Java,Javascript,SQL,HTML,CSS</span>
-  </div> -->
-  </div>
-  </div>
-</section>
-
-<!-- SHOWREEL -->
-<section class="reel-section" id="work">
-  <div class="reel-frame" onclick="openVimeoPlayer()" style="background-image: url('thumbnail/thumbnail.png');">
-    <div class="reel-center">
-      <div class="play-ring">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <polygon points="8,5 20,12 8,19" fill="rgba(239,224,205,0.85)"/>
-        </svg>
-      </div>
-      <div class="reel-label">Demo Reel 2025 — 2:14</div>
+    <div class="hero-actions fade-in delay-3">
+      <button class="hero-reel-btn" onclick="openVimeoPlayer()">
+        <i class="fa-solid fa-play"></i> Watch Reel <span>(2:14)</span>
+      </button>
+      <button class="hero-cv-btn" onclick="openCvModal()">
+        <i class="fa-solid fa-file-lines"></i> View CV
+      </button>
     </div>
   </div>
-  <div class="reel-caption">
-    <span>Hosted on Vimeo Pro</span>
-  </div>
+
+  <!-- 3D Canvas Mount Point (Kept here) -->
+  <div id="container3D"></div>
 </section>
 
-<!-- LATEST WORK CAROUSEL -->
-
-<section class="section latest-work" id="breakdowns">
-
-  <div class="work-carousel">
-
-
-    <a href="projects/film-one.html" class="work-card">
-
-      <img src="images/projects/film-one-thumb.png">
-
-      <div class="work-overlay">
-
-        <h3>
-          L'Abbaglio · 2026
-        </h3>
-
-        <p>
-          Pyro FX · 3DELight 
-        </p>
-
-      </div>
-
-    </a>
-
-
-
-    <a href="projects/film-two.html" class="work-card">
-
-      <img src="images/projects/film-two-thumb.png">
-
-      <div class="work-overlay">
-
-        <h3>
-          Il Conte di Montecristo · 2025  
-        </h3>
-
-        <p>
-          FLip Simulation · 3DELight 
-        </p>
-
-      </div>
-
-    </a>
-
-
-
-    <a href="projects/film-three.html" class="work-card">
-
-      <img src="images/projects/film-three-thumb.jpg">
-
-      <div class="work-overlay">
-
-        <h3>
-          Environment Work
-        </h3>
-
-        <p>
-          Houdini · Solaris
-        </p>
-
-      </div>
-
-    </a>
-
-
-  </div>
-
-</section>
-
-<!-- About me -->
+<!-- ABOUT ME -->
 <section class="section about-section" id="about">
   <div class="about-container">
-
-    <!-- <h2 class="section-title">About Me</h2> -->
-
     <div class="about-intro">
-
       <div class="about-photo">
-        <img src="images/me.jpg" alt="Portrait of Your Name">
+        <img src="images/me.jpg" alt="Portrait of Carolina Proietti">
       </div>
     
-    <div class="about-text">
-      <p>
-        Hi! I'm <strong>Carolina</strong>, here somethings about me you can't find on my
-        <a href="Carolina_Proietti_Fx_CV_2025.pdf" download>Curriculum</a> or <a href="https://www.imdb.com/it/name/nm17240451/" download>IMDb</a>.
-      </p>
-
-      <p>
-        Outside of work I try not to stare at a screen for the rest of the day, so I read,
-        draw, or watch movies (the last one still involves a screen, but I can't help it — I
-        just need to watch <em>In the Mood for Love</em> one more time).
-        This website started as a way to show my work, brush up on my UI design skills and
-        have some fun outside Houdini. I hope you enjoy it!
-      </p>
-    </div>
-
+      <div class="about-text">
+        <p>
+          Hi! I'm <strong>Carolina</strong>, here somethings about me you can't find on my
+          <a href="Carolina_Proietti_Fx_CV_2025.pdf" download>Curriculum</a> or <a href="https://www.imdb.com/it/name/nm17240451/" target="_blank">IMDb</a>.
+        </p>
+        <p>
+          Outside of work I try not to stare at a screen for the rest of the day, so I read,
+          draw, or watch movies (the last one still involves a screen, but I can't help it — I
+          just need to watch <em>In the Mood for Love</em> one more time).
+          This website started as a way to show my work, brush up on my UI design skills and
+          have some fun outside Houdini. I hope you enjoy it!
+        </p>
+      </div>
     </div>
 
     <div class="about-gallery">
@@ -234,52 +132,31 @@
     </div>
 
     <div class="website-rating">
-
-  <h3>Enjoyed my work?</h3>
-  <p>Leave a rating and a little feedback!</p>
-
-  <form action="https://formspree.io/f/xojgwzjg" method="POST">
-
-    <div class="stars">
-      <input type="radio" id="star5" name="rating" value="5">
-      <label for="star5">★</label>
-
-      <input type="radio" id="star4" name="rating" value="4">
-      <label for="star4">★</label>
-
-      <input type="radio" id="star3" name="rating" value="3">
-      <label for="star3">★</label>
-
-      <input type="radio" id="star2" name="rating" value="2">
-      <label for="star2">★</label>
-
-      <input type="radio" id="star1" name="rating" value="1">
-      <label for="star1">★</label>
+      <h3>Enjoyed my work?</h3>
+      <p>Leave a rating and a little feedback!</p>
+      <form action="https://formspree.io/f/xojgwzjg" method="POST">
+        <div class="stars">
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5">★</label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4">★</label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3">★</label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2">★</label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1">★</label>
+        </div>
+        <textarea name="feedback" placeholder="Your feedback..." required></textarea>
+        <input type="email" name="email" placeholder="Your email (optional)">
+        <button type="submit">Send feedback</button>
+      </form>
     </div>
-
-    <textarea 
-      name="feedback" 
-      placeholder="Your feedback..."
-      required></textarea>
-
-    <input 
-      type="email" 
-      name="email" 
-      placeholder="Your email (optional)">
-
-    <button type="submit">
-      Send feedback
-    </button>
-
-  </form>
-  </div>
-
   </div>
 </section>
 
-
 <footer>
-  <span>© 2025 Carolina Proietti </span>
+  <span>© 2026 Carolina Proietti</span>
   <span>Rome, Italy · Available worldwide</span>
 </footer>
 
@@ -287,63 +164,74 @@
 <div id="vimeoModal" class="vimeo-modal" onclick="closeVimeoPlayer(event)">
   <div class="vimeo-modal-content" onclick="event.stopPropagation()">
     <button class="vimeo-close" onclick="closeVimeoPlayer()">&times;</button>
-
     <div class="vimeo-player-wrapper">
-      <iframe
-        src="https://player.vimeo.com/video/1128634773"
-        width="640"
-        height="360"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <iframe src="https://player.vimeo.com/video/1128634773" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
-
     <div class="vimeo-password-note">
       <p>
         🔒 <strong>Wanna know the password?</strong><br>
-        <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank" rel="noopener">
-          Contact me on LinkedIn
-        </a>
-        !
+        <a href="https://www.linkedin.com/in/carolina-proietti-3749281b2" target="_blank" rel="noopener">Contact me on LinkedIn</a>!
       </p>
     </div>
   </div>
 </div>
 
+<!-- CV PREVIEW MODAL -->
+<div id="cvModal" class="cv-modal" onclick="closeCvModal(event)">
+  <div class="cv-modal-content" onclick="event.stopPropagation()">
+    <button class="cv-close" onclick="closeCvModal()">&times;</button>
+    <div class="cv-modal-header">
+      <h3>Carolina Proietti — <em>Curriculum Vitae</em></h3>
+      <a href="Carolina_Proietti_Fx_CV_2025.pdf" download class="cv-download-btn">
+        <i class="fa-solid fa-download"></i> Download PDF
+      </a>
+    </div>
+    <div class="cv-embed-wrapper">
+      <iframe src="Carolina_Proietti_Fx_CV_2025.pdf#toolbar=0" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+</div>
 
+<!-- INLINE UI SCRIPTS -->
 <script>
-  
   function openContactModal() {
     document.getElementById("contactModal").style.display = "flex";
     document.body.style.overflow = "hidden";
-}
-
-function closeContactModal() {
-    document.getElementById("contactModal").style.display = "none";
-    document.body.style.overflow = "auto";
-}
-
-  function filterBreakdowns(type, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.breakdown-card').forEach(card => {
-      if (type === 'all' || card.dataset.type === type) {
-        card.style.display = '';
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(10px)';
-        requestAnimationFrame(() => {
-          card.style.transition = 'opacity 0.3s, transform 0.3s';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        });
-      } else {
-        card.style.display = 'none';
-      }
-    });
   }
 
-  // Subtle scroll reveal
+  function closeContactModal() {
+    document.getElementById("contactModal").style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  function openVimeoPlayer() {
+    document.getElementById('vimeoModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVimeoPlayer() {
+    document.getElementById('vimeoModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function openCvModal() {
+    document.getElementById('cvModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCvModal() {
+    document.getElementById('cvModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeVimeoPlayer();
+      closeContactModal();
+      closeCvModal();
+    }
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -360,114 +248,35 @@ function closeContactModal() {
     observer.observe(el);
   });
 
-  // Vimeo player modal functions
-  function openVimeoPlayer() {
-    const modal = document.getElementById('vimeoModal');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
+  const navLinks = document.querySelectorAll("nav ul a");
 
-  function closeVimeoPlayer(event) {
-    const modal = document.getElementById('vimeoModal');
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }
+  function updateActiveNav() {
+    const scrollPosition = window.scrollY + window.innerHeight * 0.35;
+    let currentSection = null;
 
-  // Close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeVimeoPlayer();
-    }
-  });
+    document.querySelectorAll("section[id]").forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
 
-
-/* NAV ACTIVE SECTION */
-
-const navLinks = document.querySelectorAll("nav ul a");
-
-function updateActiveNav() {
-
-  const scrollPosition = window.scrollY + window.innerHeight * 0.35;
-
-  let currentSection = null;
-
-  document.querySelectorAll("section[id]").forEach(section => {
-
-    const sectionTop = section.offsetTop;
-    const sectionBottom = sectionTop + section.offsetHeight;
-
-    if (
-      scrollPosition >= sectionTop &&
-      scrollPosition < sectionBottom
-    ) {
-      currentSection = section.id;
-    }
-
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-
-    if (currentSection && link.getAttribute("href") === `#${currentSection}`) {
-      link.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", updateActiveNav);
-window.addEventListener("load", updateActiveNav);
-
-
-/* Click-and-drag mouse scrolling for .work-carousel
-   (native overflow-x:auto only responds to touch/trackpad, not mouse drag) */
-(function () {
-  const carousel = document.querySelector('.work-carousel');
-  if (!carousel) return;
-
-  let isDown = false;
-  let startX = 0;
-  let scrollStart = 0;
-  let moved = false;
-
-  carousel.addEventListener('mousedown', (e) => {
-    isDown = true;
-    moved = false;
-    carousel.classList.add('is-dragging');
-    startX = e.pageX;
-    scrollStart = carousel.scrollLeft;
-  });
-
-  window.addEventListener('mouseup', () => {
-    isDown = false;
-    carousel.classList.remove('is-dragging');
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const dx = e.pageX - startX;
-    if (Math.abs(dx) > 4) moved = true; // small threshold so plain clicks still work
-    carousel.scrollLeft = scrollStart - dx;
-  });
-
-  // Prevent the link from navigating right after a drag
-  carousel.addEventListener(
-    'click',
-    (e) => {
-      if (moved) {
-        e.preventDefault();
-        e.stopPropagation();
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        currentSection = section.id;
       }
-    },
-    true
-  );
-})();
+    });
 
-  </script>
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (currentSection && link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  }
 
-  <div id="container3D"></div>
-  <script type="module" src="app.js"></script>
+  window.addEventListener("scroll", updateActiveNav);
+  window.addEventListener("load", updateActiveNav);
+</script>
 
+<!-- THREE.JS SCENE SCRIPT -->
+<script type="module" src="stars.js"></script>
 
 </body>
 </html>

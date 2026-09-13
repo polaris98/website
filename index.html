@@ -100,47 +100,71 @@
   <!-- 3D Canvas Mount Point (Kept here) -->
   <div id="container3D"></div>
 </section>
+
 <!-- ABOUT ME -->
-  <section class="section about-section" id="about">
-    <div class="about-container">
-      <div class="about-intro">
-        
-        <!-- Top row: Photo on the left, First Paragraph on the right -->
-        <div class="about-top-row">
-          <div class="about-photo">
-            <img src="images/me.jpg" alt="Portrait of Carolina Proietti">
-          </div>
-          
-          <p class="about-part1">
-            Hi! I'm <strong>Carolina</strong>, here somethings about me you can't find on my
-            <a href="Carolina_Proietti_Fx_CV_2025.pdf" download>Curriculum</a> or <a href="https://www.imdb.com/it/name/nm17240451/" target="_blank">IMDb</a>.
-          </p>
+<section class="section about-section" id="about">
+  <div class="about-container">
+    <div class="about-intro">
+      
+      <!-- Top row: Photo on the left, First Paragraph on the right -->
+      <div class="about-top-row">
+        <div class="about-photo">
+          <img src="images/me.jpg" alt="Portrait of Carolina Proietti">
         </div>
-
-        <!-- Second paragraph: Drops below everything on mobile -->
-        <p class="about-part2">
-          Outside of work I try not to stare at a screen for the rest of the day, so I read,
-          draw, or watch movies (the last one still involves a screen, but I can't help it — I
-          just need to watch <em>In the Mood for Love</em> one more time).
-          This website started as a way to show my work, brush up on my UI design skills and
-          have some fun outside Houdini. I hope you enjoy it!
+        
+        <p class="about-part1">
+          Hi! I'm <strong>Carolina</strong>, here somethings about me you can't find on my
+          <a href="Carolina_Proietti_Fx_CV_2025.pdf" download>Curriculum</a> or <a href="https://www.imdb.com/it/name/nm17240451/" target="_blank">IMDb</a>.
         </p>
-
       </div>
 
-      <div class="about-gallery">
-        <img src="images/about_me/Elle.jpg" alt="Processing">
-        <img src="images/about_me/Mood.jpg" alt="Draw 1">
-        <img src="images/about_me/thinking.png" alt="Draw 2">
-        <img src="images/about_me/sexy_boy.png" alt="Draw 3">
-      </div>
+      <!-- Second paragraph: Drops below everything on mobile -->
+      <p class="about-part2">
+        Outside of work I try not to stare at a screen for the rest of the day, so I read,
+        draw, or watch movies (the last one still involves a screen, but I can't help it — I
+        just need to watch <em>In the Mood for Love</em> one more time).
+        This website started as a way to show my work, brush up on my UI design skills and
+        have some fun outside Houdini. I hope you enjoy it!
+      </p>
 
-      <div class="website-rating">
-        <h3>Enjoyed my work?</h3>
-        <p>Leave a rating and a little feedback!</p>
-        <form action="https://formspree.io/f/xojgwzjg" method="POST">
-          <div class="stars">
-            <input type="radio" id="star5" name="rating" value="5">
+    </div>
+
+    <div class="about-gallery">
+      <img src="images/about_me/Elle.jpg" alt="Processing">
+      <img src="images/about_me/Mood.jpg" alt="Draw 1">
+      <img src="images/about_me/thinking.png" alt="Draw 2">
+      <img src="images/about_me/sexy_boy.png" alt="Draw 3">
+    </div>
+
+    <div class="website-rating">
+      <h3>Enjoyed my work?</h3>
+      <p>Leave a rating and a little feedback!</p>
+      <form action="https://formspree.io/f/xojgwzjg" method="POST">
+        <div class="stars">
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5">★</label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4">★</label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3">★</label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2">★</label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1">★</label>
+        </div>
+        <textarea name="feedback" placeholder="Your feedback..." required></textarea>
+        <input type="email" name="email" placeholder="Your email (optional)">
+        <button type="submit">Send feedback</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Carolina Proietti</span>
+  <span>FX Technical Director</span>
+</footer>
 
 <!-- VIMEO PLAYER MODAL -->
 <div id="vimeoModal" class="vimeo-modal" onclick="closeVimeoPlayer(event)">

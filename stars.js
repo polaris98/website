@@ -26,17 +26,17 @@ function initWhimsicalBackground() {
     mouse.targetY = (event.clientY - window.innerHeight / 2) * 0.002;
   });
 
-  // 2. Custom 4-Point Whimsical Star Texture
+  // 2. Custom 4-Point Whimsical Star Texture (Blue Soft Glow)
   function create4PointStarTexture() {
     const canvas = document.createElement('canvas');
     canvas.width = 128;
     canvas.height = 128;
     const ctx = canvas.getContext('2d');
 
-    // Soft Radial Glow Background
+    // Blue Glow Halo
     const glow = ctx.createRadialGradient(64, 64, 0, 64, 64, 60);
-    glow.addColorStop(0, 'rgba(255, 230, 160, 0.9)');
-    glow.addColorStop(0.35, 'rgba(216, 180, 254, 0.35)');
+    glow.addColorStop(0, 'rgba(255, 245, 210, 0.95)');
+    glow.addColorStop(0.35, 'rgba(96, 165, 250, 0.45)');
     glow.addColorStop(1, 'rgba(0, 0, 0, 0)');
     ctx.fillStyle = glow;
     ctx.fillRect(0, 0, 128, 128);
@@ -50,8 +50,8 @@ function initWhimsicalBackground() {
       ctx.lineTo(Math.cos(((45 + i * 90) * Math.PI) / 180) * 10, -Math.sin(((45 + i * 90) * Math.PI) / 180) * 10);
     }
     ctx.closePath();
-    ctx.fillStyle = '#fff9e6';
-    ctx.shadowColor = '#ffd700';
+    ctx.fillStyle = '#ffffff';
+    ctx.shadowColor = '#60a5fa';
     ctx.shadowBlur = 12;
     ctx.fill();
     ctx.restore();
@@ -79,10 +79,9 @@ function initWhimsicalBackground() {
     positions[i * 3 + 2] = z;
     initialY[i] = y;
 
-    // Random star size variations (small accent sparkles vs. hero stars)
     scales[i] = Math.random() < 0.25 
-      ? Math.random() * 2.5 + 2.0  // 25% larger hero stars
-      : Math.random() * 1.2 + 0.5; // 75% subtle background stars
+      ? Math.random() * 2.5 + 2.0  
+      : Math.random() * 1.2 + 0.5; 
 
     pulseOffsets[i] = Math.random() * Math.PI * 2;
   }
@@ -106,7 +105,6 @@ function initWhimsicalBackground() {
         gl_PointSize = size * (250.0 / -mvPosition.z);
         gl_Position = projectionMatrix * mvPosition;
         
-        // Gentle individual star twinkling opacity
         vOpacity = 0.5 + 0.5 * sin(uTime * 1.5 + position.x * 2.0 + position.y);
       }
     `,
@@ -134,17 +132,14 @@ function initWhimsicalBackground() {
     requestAnimationFrame(animate);
     const elapsedTime = clock.getElapsedTime();
 
-    // Update uniform time for twinkling shader
     material.uniforms.uTime.value = elapsedTime;
 
-    // Smooth Mouse Camera Parallax
     mouse.x += (mouse.targetX - mouse.x) * 0.03;
     mouse.y += (mouse.targetY - mouse.y) * 0.03;
     camera.position.x = mouse.x * 3;
     camera.position.y = -mouse.y * 3;
     camera.lookAt(scene.position);
 
-    // Floating bobbing motion per star
     const posAttr = starSystem.geometry.attributes.position;
     for (let i = 0; i < count; i++) {
       const y = initialY[i] + Math.sin(elapsedTime * 0.6 + pulseOffsets[i]) * 0.35;
@@ -157,7 +152,6 @@ function initWhimsicalBackground() {
 
   animate();
 
-  // Responsive Canvas Resizing
   window.addEventListener('resize', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
